@@ -52,17 +52,13 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
 .lead{font-weight:400;font-size:18px;line-height:1.5;color:var(--mute);max-width:660px;}
 
 /* ---------- TOOLBAR (sticky) ---------- */
-.toolbar{
-  position:sticky;top:0;z-index:40;
-  background:rgba(233,233,228,.92);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--rule);
-  margin-top:26px;
-}
-.toolbar-in{
-  max-width:1180px;margin:0 auto;padding:16px clamp(20px,5vw,64px);
-  display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between;
-}
-.search{position:relative;flex:1 1 300px;max-width:420px;}
+/* ---------- LAYOUT : sidebar gauche + contenu ---------- */
+.layout{max-width:1180px;margin:26px auto 0;padding:0 clamp(20px,5vw,64px);display:flex;gap:38px;align-items:flex-start;}
+.sidebar{position:sticky;top:24px;flex:0 0 220px;width:220px;display:flex;flex-direction:column;gap:16px;}
+.side-label{font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-left:2px;}
+.main-col{flex:1;min-width:0;}
+
+.search{position:relative;width:100%;}
 .search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--mute);pointer-events:none;}
 .search input{
   width:100%;font-family:inherit;font-size:15px;color:var(--black);
@@ -76,19 +72,30 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
   display:none;align-items:center;justify-content:center;
 }
 .search .clear svg{position:static;transform:none;width:14px;height:14px;color:inherit;}
-.chips{display:flex;gap:8px;flex-wrap:wrap;}
+
+.chips{display:flex;flex-direction:column;gap:6px;}
 .chip-f{
-  font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.01em;
-  padding:9px 15px;border-radius:999px;border:1.5px solid var(--rule);background:#fff;color:var(--black);cursor:pointer;
-  transition:background .14s ease,border-color .14s ease,color .14s ease;white-space:nowrap;
+  font-family:inherit;font-weight:600;font-size:13.5px;letter-spacing:.01em;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;
+  padding:10px 14px;border-radius:10px;border:1.5px solid transparent;background:transparent;color:var(--black);cursor:pointer;
+  transition:background .14s ease,border-color .14s ease,color .14s ease;
 }
-.chip-f:hover{border-color:var(--black);}
+.chip-f:hover{background:#fff;border-color:var(--rule);}
 .chip-f.active{background:var(--black);color:#fff;border-color:var(--black);}
-.chip-f .n{opacity:.55;font-weight:700;margin-left:5px;}
+.chip-f .n{opacity:.5;font-weight:700;font-size:12px;}
+.chip-f.active .n{opacity:.65;}
+
+@media(max-width:760px){
+  .layout{flex-direction:column;gap:20px;}
+  .sidebar{position:static;flex:none;width:100%;}
+  .chips{flex-direction:row;flex-wrap:wrap;}
+  .chip-f{width:auto;}
+}
 
 /* ---------- BOARD / CATEGORIES ---------- */
-.board{max-width:1180px;margin:0 auto;padding:12px clamp(20px,5vw,64px) 60px;}
-.cat-block{margin-top:34px;}
+.board{padding:2px 0 60px;}
+.cat-block{margin-top:0;}
+.cat-block + .cat-block{margin-top:34px;}
 .cat-head{
   display:flex;align-items:center;gap:12px;margin-bottom:18px;
   font-weight:800;font-size:15px;letter-spacing:.02em;
@@ -214,19 +221,21 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
   <p class="lead">Chaque feature Ideeri, sa fiche. Cherchez, filtrez par catégorie, survolez pour l'aperçu, ou ouvrez la version complète et la version embed.</p>
 </section>
 
-<div class="toolbar">
-  <div class="toolbar-in">
+<div class="layout">
+  <aside class="sidebar">
     <label class="search">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input id="search" type="text" placeholder="Rechercher une fiche…" autocomplete="off">
+      <input id="search" type="text" placeholder="Rechercher…" autocomplete="off">
       <button class="clear" id="clear" aria-label="Effacer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </label>
+    <div class="side-label">Catégories</div>
     <div class="chips" id="chips"></div>
+  </aside>
+  <div class="main-col">
+    <main class="board" id="board"></main>
+    <div class="no-results" id="noResults">Aucune fiche ne correspond à votre recherche.</div>
   </div>
 </div>
-
-<main class="board" id="board"></main>
-<div class="no-results" id="noResults">Aucune fiche ne correspond à votre recherche.</div>
 
 <footer class="foot">
   <span class="f-left">Ideeri · Fiches produit · Bibliothèque interne</span>
