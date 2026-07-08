@@ -120,8 +120,7 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
 .preview{position:relative;height:210px;background:#fff;overflow:hidden;cursor:pointer;border-bottom:1px solid var(--rule);}
 .preview iframe{
   position:absolute;top:0;left:0;
-  width:794px;height:1123px;border:0;
-  transform:scale(.42);transform-origin:top left;
+  width:100%;height:1000px;border:0;
   pointer-events:none;background:#fff;
 }
 .preview .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.04));z-index:2;}
@@ -218,7 +217,7 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
 <section class="hero">
   <span class="kicker">Toutes les features</span>
   <h1 class="title">La bibliothèque<br><em>des fiches produit.</em></h1>
-  <p class="lead">Chaque feature Ideeri, sa fiche. Cherchez, filtrez par catégorie, survolez pour l'aperçu, ou ouvrez la version complète et la version embed.</p>
+  <p class="lead">Chaque feature Ideeri, sa fiche. Cherchez, filtrez par catégorie, survolez pour l'aperçu, ou ouvrez la fiche complète.</p>
 </section>
 
 <div class="layout">
@@ -249,10 +248,6 @@ h1.title em{font-style:normal;background:var(--yellow);padding:.02em .12em;box-d
   <div class="modal-bar">
     <div class="m-title"><span>Fiche produit</span><b id="mTitle">—</b></div>
     <div class="modal-tools">
-      <div class="seg">
-        <button id="segFull" class="active" data-v="full">Fiche complète</button>
-        <button id="segEmbed" data-v="embed">Embed</button>
-      </div>
       <a class="m-link" id="mOpen" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         Ouvrir l'onglet
@@ -330,9 +325,6 @@ CATEGORIES.forEach(cat => {
   block.innerHTML = `<h2 class="cat-head">${cat}<span class="cat-n">${items.length}</span></h2><div class="grid"></div>`;
   const grid = block.querySelector('.grid');
   items.forEach(({f,idx})=>{
-    const embedBtn = f.embed
-      ? `<a class="btn btn-embed" href="${f.embed}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Embed</a>`
-      : '';
     const card = document.createElement('article');
     card.className = 'card';
     card.dataset.i = idx;
@@ -351,7 +343,6 @@ CATEGORIES.forEach(cat => {
         <p class="c-desc">${f.desc}</p>
         <div class="c-actions">
           <a class="btn btn-full" href="${f.full}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Fiche complète</a>
-          ${embedBtn}
         </div>
       </div>`;
     grid.appendChild(card);
@@ -406,22 +397,12 @@ const modal = document.getElementById('modal');
 const mFrame = document.getElementById('mFrame');
 const mTitle = document.getElementById('mTitle');
 const mOpen = document.getElementById('mOpen');
-const segFull = document.getElementById('segFull');
-const segEmbed = document.getElementById('segEmbed');
 let current = null;
-function loadVersion(v){
-  if(v === 'embed' && !current.embed) v = 'full';
-  const src = v === 'embed' ? current.embed : current.full;
-  mFrame.src = src;
-  mOpen.href = src;
-  segFull.classList.toggle('active', v === 'full');
-  segEmbed.classList.toggle('active', v === 'embed');
-}
 function openModal(i){
   current = FEATURES[i];
   mTitle.textContent = current.title;
-  segEmbed.style.display = current.embed ? '' : 'none';
-  loadVersion('full');
+  mFrame.src = current.full;
+  mOpen.href = current.full;
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -431,8 +412,6 @@ function closeModal(){
   document.body.style.overflow = '';
 }
 document.querySelectorAll('.preview').forEach(p => p.addEventListener('click', () => openModal(+p.dataset.i)));
-segFull.addEventListener('click', () => loadVersion('full'));
-segEmbed.addEventListener('click', () => loadVersion('embed'));
 document.getElementById('mClose').addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
