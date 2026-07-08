@@ -264,11 +264,12 @@ const ICONS = {
   mic:'<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>',
   card:'<rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>',
   share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
-  web:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>'
+  web:'<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>',
+  tag:'<circle cx="12" cy="12" r="10"/><path d="M15 9.3a3.5 3.5 0 0 0-6 2.7 3.5 3.5 0 0 0 6 2.7"/><line x1="7" y1="11" x2="12.5" y2="11"/>'
 };
 
 // Catégories, dans l'ordre d'affichage
-const CATEGORIES = ['Données & CRM','Téléphonie','Acquisition & visibilité','Relation client'];
+const CATEGORIES = ['Données & CRM','Téléphonie','Acquisition & visibilité','Relation client','Offre & tarifs'];
 
 const FEATURES = [
   {
@@ -300,6 +301,11 @@ const FEATURES = [
     title:'Stratégie web', cat:'Acquisition & visibilité', tag:'Site · Acquisition', icon:'web',
     desc:"Un site calibré pour l’immobilier, pensé pour transformer les visiteurs en prospects qualifiés.",
     full:'ideeri-fiche-strategie-web.html', embed:'embed-strategie-web.html'
+  },
+  {
+    title:'Tarifs Ideeri', cat:'Offre & tarifs', tag:'Écosystème · Abonnement', icon:'tag',
+    desc:"Accès complet à l’écosystème (Papiris, Compagnon, app Ideeri), abonnement uniquement pour les conseillers actifs — et le Site web & SEO en option à la carte.",
+    full:'ideeri-fiche-tarifs.html', embed:null
   }
 ];
 
