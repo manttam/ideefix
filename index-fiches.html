@@ -276,7 +276,7 @@ const ICONS = {
 };
 
 // Catégories, dans l'ordre d'affichage
-const CATEGORIES = ['Données & CRM','Téléphonie','Acquisition & visibilité','Relation client','Outils & bureautique','Onboarding & conformité','Offre & tarifs'];
+const CATEGORIES = ['Données & CRM','Téléphonie','Acquisition & visibilité','Relation client','Outils & bureautique','Onboarding & conformité','Offre & tarifs','Schémas'];
 
 const FEATURES = [
   {
@@ -333,6 +333,16 @@ const FEATURES = [
     title:'Confidentialité & RGPD', cat:'Onboarding & conformité', tag:'Données · Conformité', icon:'shield',
     desc:"Le double rôle d’Ideeri (responsable et sous-traitant), les données gérées, l’hébergement certifié et vos droits.",
     full:'ideeri-fiche-confidentialite-rgpd.html', embed:null
+  },
+  {
+    title:'Schéma · Parcours d’appel', cat:'Schémas', tag:'Téléphonie · Infographie', icon:'phoneFwd',
+    desc:"Le parcours d’un appel entrant en un visuel : de l’arrivée à la fidélisation, avec qualification IA, transfert et tarifs.",
+    full:'ideeri-schema-parcours-appel.html', img:'ideeri-schema-parcours-appel.png', action:'Voir le schéma', embed:null
+  },
+  {
+    title:'Schéma · Onboarding', cat:'Schémas', tag:'Parcours client · Infographie', icon:'share',
+    desc:"Les 6 étapes de l’onboarding (J+1 → J+75) en frise verticale, du contrat à la mise en ligne.",
+    full:'ideeri-schema-onboarding-vertical.html', img:'ideeri-schema-onboarding-vertical.png', action:'Voir le schéma', embed:null
   }
 ];
 
@@ -354,7 +364,7 @@ CATEGORIES.forEach(cat => {
     card.dataset.search = (f.title+' '+f.tag+' '+f.desc+' '+f.cat).toLowerCase();
     card.innerHTML = `
       <div class="preview" data-i="${idx}">
-        <iframe src="${f.embed || f.full}" loading="lazy" title="Aperçu ${f.title}" tabindex="-1"></iframe>
+        ${f.img ? `<img src="${f.img}" loading="lazy" alt="Aperçu ${f.title}" style="width:100%;height:100%;object-fit:cover;object-position:top;">` : `<iframe src="${f.embed || f.full}" loading="lazy" title="Aperçu ${f.title}" tabindex="-1"></iframe>`}
         <div class="veil"></div>
         <button class="expand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>Aperçu</button>
       </div>
@@ -365,7 +375,7 @@ CATEGORIES.forEach(cat => {
         </div>
         <p class="c-desc">${f.desc}</p>
         <div class="c-actions">
-          <a class="btn btn-full" href="${f.full}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Fiche complète</a>
+          <a class="btn btn-full" href="${f.full}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>${f.action || 'Fiche complète'}</a>
         </div>
       </div>`;
     grid.appendChild(card);
