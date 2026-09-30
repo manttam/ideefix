@@ -316,7 +316,7 @@ ul.chk li b{font-weight:700;color:var(--black);}
 .lead-card ul.chk li{font-size:15px;line-height:1.45;margin-bottom:11px;padding-left:24px;}
 .lead-card ul.chk li:before{top:7px;width:10px;height:10px;}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
-.duo .cfg-card{padding:16px 18px;}
+.duo .cfg-card{padding:16px 18px;display:block;}
 .duo .cfg-title{font-size:16px;}
 .duo .cfg-d{margin-bottom:0;font-size:13px;}
 .solo .law{font-size:13.5px;padding:14px 18px;margin:0 0 18px;}
@@ -332,6 +332,13 @@ ul.chk li b{font-weight:700;color:var(--black);}
 .duo .cfg-h{display:block;margin-bottom:6px;}
 h1.title.sm{margin-bottom:16px;}
 .return.solo-r{margin:4px 0 0;padding:18px 22px;}
+.grp{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
+.g-t{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
+.grp ul.chk li{font-size:11.6px;line-height:1.36;margin-bottom:4px;}
+.lead-card .grp{gap:16px 24px;}
+.lead-card .grp .g-t{font-size:12px;margin-bottom:8px;}
+.lead-card .grp ul.chk li{font-size:13px;line-height:1.42;margin-bottom:7px;padding-left:21px;}
+.lead-card .grp ul.chk li:before{top:6px;width:8px;height:8px;}
 </style>
 </head>
 <body>
@@ -351,13 +358,13 @@ h1.title.sm{margin-bottom:16px;}
 
     <span class="kicker">Reprise des données · Étape 3 sur 4</span>
     <h1 class="title sm">Vous tranchez,<br><em>on intègre.</em></h1>
-    <p class="subline sm">Certaines données ne peuvent pas être tranchées sans vous. Nous vous les renvoyons dans un fichier simple à compléter.</p>
+    <p class="subline sm">Certains cas ne peuvent pas être tranchés sans vous. Nous vous les envoyons dans des fichiers simples à compléter.</p>
     <div class="ov"><div class="ov-i"><div class="ov-n">1</div><div class="ov-t">Récupération</div><div class="ov-w">On rédige, vous signez</div></div><div class="ov-i"><div class="ov-n">2</div><div class="ov-t">Audit & nettoyage</div><div class="ov-w">On analyse et on remet de l’ordre</div></div><div class="ov-i on"><div class="ov-n">3</div><div class="ov-t">Clarification</div><div class="ov-w">Vous tranchez, on intègre</div></div><div class="ov-i"><div class="ov-n">4</div><div class="ov-t">Intégration</div><div class="ov-w">Votre base propre, en ligne</div></div></div>
     <div class="benef-head" style="margin-bottom:10px;">Étape 3 · Clarification par l’agence</div>
-    <div class="lead-card"><ul class="chk"><li>Nous vous envoyons un <b>fichier des données ambiguës</b> : biens au statut inconnu, contacts non qualifiés…</li><li>Vous clarifiez. C’est aussi l’occasion de <b>rappeler des clients et de générer du business</b>.</li></ul></div>
-    <div class="solo"><div class="branch"><div class="br known"><div class="br-h"><span class="br-tag">Clarifié</span></div><div class="br-d">La donnée est intégrée dans Ideeri.</div></div><div class="br unknown"><div class="br-h"><span class="br-tag">Non clarifié</span></div><div class="br-d">La donnée n’est pas intégrée : un contact dont on ne sait rien ne sert à rien.</div></div></div><p class="note">Une méthode déjà éprouvée avec nos agences clientes.</p></div>
-    <div class="duo"><div class="cfg-card"><div class="cfg-h"><span class="cfg-title">Ce que vous faites</span></div><div class="cfg-d">Compléter le fichier des données ambiguës : statut des biens, qualification des contacts.</div></div><div class="cfg-card reco"><div class="cfg-h"><span class="cfg-title">Ce que vous gagnez</span></div><div class="cfg-d">Une base sans poids mort, et une liste de clients à rappeler : une vraie occasion de générer du business.</div></div></div>
-    <div class="return solo-r"><span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EBBC02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="r-txt"><strong>Ce qui reste flou n’entre pas.</strong> Seules les données utiles sont intégrées dans Ideeri.</span></div>
+    <div class="lead-card"><ul class="chk"><li>Des <b>fichiers d’extraction à compléter</b> : biens sans propriétaire identifié, compromis de vente orphelins (liés à des biens absents de l’import), biens au statut inconnu, contacts non qualifiés.</li><li><b>Arbitrage des fusions</b> : dans Ideeri, une adresse e-mail n’appartient qu’à un seul contact. Quand un nouveau contact partage l’adresse d’un contact existant, il est fusionné ou importé sans e-mail ; vous tranchez les cas douteux.</li><li>Vous clarifiez. C’est aussi l’occasion de <b>rappeler des clients et de générer du business</b>.</li></ul></div>
+    <div class="solo"><p class="note">Une méthode déjà éprouvée avec nos agences clientes.</p></div>
+    <div class="duo"><div class="cfg-card"><div class="cfg-h"><span class="cfg-title">Ce que vous faites</span></div><div class="cfg-d">Compléter les fichiers d’extraction et trancher les fusions de contacts douteuses.</div></div><div class="cfg-card reco"><div class="cfg-h"><span class="cfg-title">Ce que vous gagnez</span></div><div class="cfg-d">Une base fiable, et une liste de clients à rappeler : une vraie occasion de générer du business.</div></div></div>
+    <div class="return solo-r"><span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EBBC02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="r-txt"><strong>Vous gardez la main.</strong> Les cas ambigus sont tranchés par vous, pas par un script.</span></div>
     
   </main>
   <footer class="foot">

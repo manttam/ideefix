@@ -316,7 +316,7 @@ ul.chk li b{font-weight:700;color:var(--black);}
 .lead-card ul.chk li{font-size:15px;line-height:1.45;margin-bottom:11px;padding-left:24px;}
 .lead-card ul.chk li:before{top:7px;width:10px;height:10px;}
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;}
-.duo .cfg-card{padding:16px 18px;}
+.duo .cfg-card{padding:16px 18px;display:block;}
 .duo .cfg-title{font-size:16px;}
 .duo .cfg-d{margin-bottom:0;font-size:13px;}
 .solo .law{font-size:13.5px;padding:14px 18px;margin:0 0 18px;}
@@ -332,6 +332,13 @@ ul.chk li b{font-weight:700;color:var(--black);}
 .duo .cfg-h{display:block;margin-bottom:6px;}
 h1.title.sm{margin-bottom:16px;}
 .return.solo-r{margin:4px 0 0;padding:18px 22px;}
+.grp{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
+.g-t{font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:5px;}
+.grp ul.chk li{font-size:11.6px;line-height:1.36;margin-bottom:4px;}
+.lead-card .grp{gap:16px 24px;}
+.lead-card .grp .g-t{font-size:12px;margin-bottom:8px;}
+.lead-card .grp ul.chk li{font-size:13px;line-height:1.42;margin-bottom:7px;padding-left:21px;}
+.lead-card .grp ul.chk li:before{top:6px;width:8px;height:8px;}
 </style>
 </head>
 <body>
@@ -352,8 +359,6 @@ h1.title.sm{margin-bottom:16px;}
     <span class="kicker">Reprise des données · 4 étapes</span>
     <h1 class="title sm">Vos données reprises,<br><em>triées, prêtes à servir.</em></h1>
     <p class="subline sm">De la résiliation chez votre éditeur actuel jusqu’à l’intégration dans Ideeri, nous nous occupons de tout. Vous signez un courrier et clarifiez quelques données : nous faisons le reste.</p>
-    <div class="benef-head" style="margin-bottom:10px;">Le parcours en un coup d’œil</div>
-    <div class="ov"><div class="ov-i"><div class="ov-n">1</div><div class="ov-t">Récupération</div><div class="ov-w">On rédige, vous signez</div></div><div class="ov-i"><div class="ov-n">2</div><div class="ov-t">Audit & nettoyage</div><div class="ov-w">On analyse et on remet de l’ordre</div></div><div class="ov-i"><div class="ov-n">3</div><div class="ov-t">Clarification</div><div class="ov-w">Vous tranchez, on intègre</div></div><div class="ov-i"><div class="ov-n">4</div><div class="ov-t">Intégration</div><div class="ov-w">Votre base propre, en ligne</div></div></div>
     <div class="st">
       <div class="st-h"><div class="st-n">1</div><div class="st-tt"><div class="st-eye">Étape 1</div><div class="st-t">Récupération des données</div></div><div class="who"><span class="w i">Ideeri</span><span class="w v">Vous</span></div></div>
       <ul class="chk"><li>Nous rédigeons le <b>courrier de résiliation</b> adressé à votre éditeur actuel. Vous n’avez qu’à le signer et l’envoyer en recommandé avec accusé de réception.</li><li>Le courrier demande l’<b>export complet de vos données</b> : biens, photos, descriptifs, contacts, historique.</li><li>Il demande aussi le <b>justificatif détaillé des éventuels frais de sortie</b>.</li></ul>
@@ -361,7 +366,7 @@ h1.title.sm{margin-bottom:16px;}
     </div>
     <div class="st">
       <div class="st-h"><div class="st-n">2</div><div class="st-tt"><div class="st-eye">Étape 2</div><div class="st-t">Audit et nettoyage</div></div><div class="who"><span class="w i">Ideeri</span></div></div>
-      <ul class="chk"><li><b>Analyse complète</b> de votre base.</li><li>Suppression des <b>doublons, triplons</b> et fiches en double.</li><li>Classement de chaque information <b>dans le bon champ</b>, en conservant le maximum de détails.</li><li>Récupération des <b>biens, photos, textes descriptifs, contacts et numéros de téléphone</b>.</li><li>Traitement des <b>contacts acquéreurs et vendeurs mal qualifiés</b>, et des numéros « qui se promènent » d’une fiche à l’autre.</li></ul>
+      <div class="grp"><div class="g"><div class="g-t">Corrections techniques &amp; médias</div><ul class="chk"><li><b>Encodage</b> : les caractères mal codés des fichiers sources sont corrigés automatiquement par nos scripts.</li><li><b>Photos</b> : liens convertis en adresses absolues, médias téléchargés depuis le serveur d’origine et hébergés chez Ideeri.</li><li>Chaque information rangée <b>dans le bon champ</b>, avec le maximum de détails conservés.</li></ul></div><div class="g"><div class="g-t">Biens &amp; dossiers</div><ul class="chk"><li><b>Statuts des mandats</b> (en cours, suspendu, compromis, vendu, estimation…) convertis vers les statuts d’Ideeri.</li><li><b>Biens archivés importés</b> : l’historique complet de l’agence est conservé.</li></ul></div><div class="g"><div class="g-t">Contacts</div><ul class="chk"><li><b>Toutes les fiches contacts importées</b>, avec un filtre de récence sur les prospects, défini avec vous.</li><li><b>Doublons</b> repérés par e-mail, ou par nom + prénom + téléphone. Les doublons d’e-mail sont fusionnés, les adresses génériques vidées.</li><li>Un <b>projet d’achat ou de vente</b> créé automatiquement pour chaque contact sans projet actif.</li></ul></div><div class="g"><div class="g-t">Enrichissement &amp; historique</div><ul class="chk"><li><b>Critères de recherche</b> (transaction, type de bien, prix, surface, pièces, chambres) adaptés au moteur de rapprochement ; ville par défaut ajoutée si aucune n’est renseignée.</li><li><b>Journal des activités</b> : tout l’historique des actions de l’agence repris en activités Ideeri.</li></ul></div></div>
       
     </div>
 
@@ -386,19 +391,19 @@ h1.title.sm{margin-bottom:16px;}
 
     <span class="kicker">Reprise des données · suite</span>
     <h2 class="h2big">Vous tranchez,<br><em>on intègre.</em></h2>
-    <p class="sec-lead" style="margin-bottom:18px;">Seules les données utiles entrent dans Ideeri. Ce qui reste flou est clarifié avec vous, ou laissé de côté.</p>
+    <p class="sec-lead" style="margin-bottom:18px;">Les cas ambigus sont soumis à votre arbitrage avant l’intégration : vous gardez la main sur votre base.</p>
     <div class="st">
       <div class="st-h"><div class="st-n">3</div><div class="st-tt"><div class="st-eye">Étape 3</div><div class="st-t">Clarification par l’agence</div></div><div class="who"><span class="w v">Vous</span><span class="w i">Ideeri</span></div></div>
-      <ul class="chk"><li>Nous vous envoyons un <b>fichier des données ambiguës</b> : biens au statut inconnu, contacts non qualifiés…</li><li>Vous clarifiez. C’est aussi l’occasion de <b>rappeler des clients et de générer du business</b>.</li></ul>
-      <div class="branch"><div class="br known"><div class="br-h"><span class="br-tag">Clarifié</span></div><div class="br-d">La donnée est intégrée dans Ideeri.</div></div><div class="br unknown"><div class="br-h"><span class="br-tag">Non clarifié</span></div><div class="br-d">La donnée n’est pas intégrée : un contact dont on ne sait rien ne sert à rien.</div></div></div><p class="note">Une méthode déjà éprouvée avec nos agences clientes.</p>
+      <ul class="chk"><li>Des <b>fichiers d’extraction à compléter</b> : biens sans propriétaire identifié, compromis de vente orphelins (liés à des biens absents de l’import), biens au statut inconnu, contacts non qualifiés.</li><li><b>Arbitrage des fusions</b> : dans Ideeri, une adresse e-mail n’appartient qu’à un seul contact. Quand un nouveau contact partage l’adresse d’un contact existant, il est fusionné ou importé sans e-mail ; vous tranchez les cas douteux.</li><li>Vous clarifiez. C’est aussi l’occasion de <b>rappeler des clients et de générer du business</b>.</li></ul>
+      <p class="note">Une méthode déjà éprouvée avec nos agences clientes.</p>
     </div>
     <div class="st">
-      <div class="st-h"><div class="st-n">4</div><div class="st-tt"><div class="st-eye">Étape 4</div><div class="st-t">Intégration dans Ideeri</div></div><div class="who"><span class="w i">Ideeri</span></div></div>
-      <ul class="chk"><li><b>Intégration de la base propre</b> dans Ideeri.</li><li>Création des <b>passerelles vers les portails d’annonces</b> via Ubiflow.</li></ul>
+      <div class="st-h"><div class="st-n">4</div><div class="st-tt"><div class="st-eye">Étape 4</div><div class="st-t">Intégration dans Ideeri</div></div><div class="who"><span class="w i">Ideeri</span><span class="w v">Vous</span></div></div>
+      <ul class="chk"><li><b>Intégration de la base propre</b> dans Ideeri, photos et historique compris.</li><li>Création des <b>passerelles vers les portails d’annonces</b> via Ubiflow.</li><li><b>Après la migration</b> : nous vous remettons la liste des contacts sans adresse e-mail, pour que vous puissiez les compléter.</li></ul>
       <div class="offer"><div class="of"><div><div class="of-n">Agence ancien</div><div class="of-s">Mise en service Ubiflow</div></div><div class="of-p"><s>475&nbsp;€ TTC</s><span class="free">Offert</span></div></div><div class="of"><div><div class="of-n">Agence neuf</div><div class="of-s">Mise en service Ubiflow</div></div><div class="of-p"><s>645&nbsp;€ TTC</s><span class="free">Offert</span></div></div></div>
     </div>
 
-    <div class="return tight"><span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EBBC02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="r-txt"><strong>Une base propre dès le premier jour.</strong> Vous ne gardez que ce qui sert à vendre, et vos annonces sont diffusées sans frais de mise en service.</span></div>
+    <div class="return tight"><span class="r-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EBBC02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="r-txt"><strong>Une base propre dès le premier jour.</strong> Tout votre historique est conservé, et vos annonces sont diffusées sans frais de mise en service.</span></div>
     <p class="legal">Information générale, sans valeur de conseil juridique. Références : RGPD (art. 28) ; règlement européen sur les données « Data Act » (UE 2023/2854, art. 29), applicable aux services en ligne.</p>
   </main>
   <footer class="foot">
